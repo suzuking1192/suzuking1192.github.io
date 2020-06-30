@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H0NW5Z2MYC"></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -152,7 +152,7 @@
 
     var predict = function(input) {
       if (window.model) {
-        window.model.predict([tf.tensor(input).reshape([1, 28, 28, 1])]).array().then(function(scores){
+        window.model.predict([tf.tensor(input).reshape([28,28])]).array().then(function(scores){
           scores = scores[0];
           predicted = scores.indexOf(Math.max(...scores));
           $('#number').html(predicted);
